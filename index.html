@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppHub | Free App Guides</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    radial-gradient(circle at top left,#6c63ff55,transparent 35%),
+    radial-gradient(circle at bottom right,#00d4ff44,transparent 35%),
+    #080b18;
+    color:white;
+}
+
+.container{
+    width:92%;
+    max-width:850px;
+    margin:auto;
+    padding:25px 0 40px;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:35px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:13px;
+    background:linear-gradient(135deg,#6c63ff,#00d4ff);
+    font-size:22px;
+}
+
+.badge{
+    padding:8px 13px;
+    border-radius:30px;
+    background:#ffffff12;
+    border:1px solid #ffffff20;
+    font-size:12px;
+    color:#cfd3ff;
+}
+
+.hero{
+    text-align:center;
+    padding:20px 10px 35px;
+}
+
+.hero-icon{
+    width:80px;
+    height:80px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:25px;
+    font-size:42px;
+    background:linear-gradient(135deg,#6c63ff,#00d4ff);
+    box-shadow:0 15px 45px #4e5cff55;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+h1{
+    font-size:42px;
+    margin-top:25px;
+    line-height:1.15;
+}
+
+.gradient-text{
+    background:linear-gradient(90deg,#8d85ff,#00e5ff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.subtitle{
+    max-width:600px;
+    margin:18px auto 0;
+    color:#aeb4ca;
+    font-size:17px;
+    line-height:1.7;
+}
+
+.main-card{
+    margin-top:15px;
+    padding:30px;
+    border-radius:25px;
+    background:#ffffff0b;
+    border:1px solid #ffffff15;
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 70px #00000055;
+}
+
+.card-title{
+    text-align:center;
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.card-description{
+    text-align:center;
+    color:#9da4bd;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:28px;
+}
+
+.feature{
+    padding:17px 10px;
+    text-align:center;
+    border-radius:16px;
+    background:#ffffff08;
+    border:1px solid #ffffff10;
+}
+
+.feature-icon{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.feature span{
+    display:block;
+    font-size:12px;
+    color:#aeb4ca;
+}
+
+.unlock{
+    width:100%;
+    border:none;
+    padding:18px;
+    border-radius:15px;
+    cursor:pointer;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    background:linear-gradient(90deg,#6258ff,#00bde8);
+    box-shadow:0 10px 30px #6258ff55;
+    transition:.25s;
+    position:relative;
+    overflow:hidden;
+}
+
+.unlock:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 40px #6258ff77;
+}
+
+.unlock:active{
+    transform:scale(.98);
+}
+
+.unlock::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:50%;
+    height:100%;
+    background:#ffffff33;
+    transform:skewX(-20deg);
+    animation:shine 3s infinite;
+}
+
+@keyframes shine{
+    0%{left:-100%;}
+    40%,100%{left:150%;}
+}
+
+.steps{
+    margin-top:30px;
+}
+
+.steps-title{
+    text-align:center;
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+.step{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+    margin-top:10px;
+    border-radius:14px;
+    background:#ffffff06;
+}
+
+.number{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#6258ff;
+    font-weight:bold;
+}
+
+.step strong{
+    font-size:14px;
+}
+
+.step p{
+    color:#858ca5;
+    font-size:12px;
+    margin-top:4px;
+}
+
+.notice{
+    margin-top:25px;
+    text-align:center;
+    color:#858ca5;
+    font-size:11px;
+    line-height:1.6;
+}
+
+footer{
+    text-align:center;
+    margin-top:30px;
+    color:#666d85;
+    font-size:12px;
+}
+
+@media(max-width:600px){
+
+    h1{
+        font-size:32px;
+    }
+
+    .subtitle{
+        font-size:15px;
+    }
+
+    .main-card{
+        padding:22px 17px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .feature{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        text-align:left;
+    }
+
+    .feature-icon{
+        margin:0;
+    }
+
+    .header{
+        margin-bottom:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            AppHub
+        </div>
+
+        <div class="badge">
+            ✦ Updated 2026
+        </div>
+    </div>
+
+    <section class="hero">
+
+        <div class="hero-icon">
+            📲
+        </div>
+
+        <h1>
+            Discover
+            <span class="gradient-text">
+                Useful Apps
+            </span>
+        </h1>
+
+        <p class="subtitle">
+            Explore useful Android apps, guides and digital resources
+            in one simple place.
+        </p>
+
+    </section>
+
+    <div class="main-card">
+
+        <h2 class="card-title">
+            🔓 Unlock Your Content
+        </h2>
+
+        <p class="card-description">
+            Complete one of the available offers below to access
+            the requested content.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div>
+                    <strong>Quick Access</strong>
+                    <span>Simple process</span>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <div>
+                    <strong>Mobile Friendly</strong>
+                    <span>Works on your phone</span>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <div>
+                    <strong>Secure</strong>
+                    <span>Protected content</span>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="unlock" onclick="openLocker()">
+            🔓 Continue & Unlock
+        </button>
+
+        <div class="steps">
+
+            <div class="steps-title">
+                How it works
+            </div>
+
+            <div class="step">
+                <div class="number">1</div>
+                <div>
+                    <strong>Click the button</strong>
+                    <p>Start the unlocking process.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="number">2</div>
+                <div>
+                    <strong>Choose an available offer</strong>
+                    <p>Follow the instructions shown.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="number">3</div>
+                <div>
+                    <strong>Access the content</strong>
+                    <p>The content becomes available after a successful conversion.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="notice">
+            Offers and availability may vary depending on your
+            location and device.
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 AppHub • Digital Resources
+    </footer>
+
+</div>
+
+<script>
+function openLocker(){
+
+    window.location.href =
+    "https://trkoffer.net/cl/i/qn136w";
+
+}
+</script>
+
+</body>
+                      </html>
